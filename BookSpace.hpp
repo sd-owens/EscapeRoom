@@ -9,7 +9,7 @@
 #include "Space.hpp"
 
 class BookSpace : public Space {
-//    friend std::ostream& operator << (std::ostream& os, const Color& color);
+   friend std::ostream& operator << (std::ostream& os, const BookSpace& space);
 private:
     int numBooks;
     Color colorBooks;

@@ -17,16 +17,16 @@ bool DoorSpace::isLocked() {
 
 void DoorSpace::openDoor() {
 
-    std::stringstream ss;
-
-    // if player backpack contains key
-
-    else {
-        ss << "The lock releases and falls free of the iron door, the door is\n";
-        ss << "now open and the way is clear\n";
-    }
-
-    std::cout << ss.str();
+//    std::stringstream ss;
+//
+//    // if player backpack contains key
+//
+//    else {
+//        ss << "The lock releases and falls free of the iron door, the door is\n";
+//        ss << "now open and the way is clear\n";
+//    }
+//
+//    std::cout << ss.str();
 
 
 
