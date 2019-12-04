@@ -5,9 +5,13 @@
 #ifndef SPACE_HPP
 #define SPACE_HPP
 
-enum direction {north, east, west, south};
+#include "Player.hpp"
+
+enum Color {Blue , Green, Red};
 
 class Space {
+//    friend std::ostream& operator << (std::ostream& os, const Color& color);
+//    virtual void do_print(std::ostream& str) = 0;
 protected:
     Player* player;
     Space* north;
@@ -17,6 +21,7 @@ protected:
 public:
     explicit Space();
     virtual ~Space();
+    virtual void search() = 0;
     virtual bool isOccupied();
     void showDoors();
 

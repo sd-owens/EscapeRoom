@@ -1,6 +1,11 @@
 #include <iostream>
+#include "BookSpace.hpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    BookSpace bs (4, Red);
+
+    bs.search();
+
     return 0;
 }
