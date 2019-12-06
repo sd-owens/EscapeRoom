@@ -10,6 +10,7 @@
 enum Color {Blue , Green, Red};
 
 class Space {
+    friend class GameMap;
 //    friend std::ostream& operator << (std::ostream& os, const Color& color);
 //    virtual void do_print(std::ostream& str) = 0;
 protected:

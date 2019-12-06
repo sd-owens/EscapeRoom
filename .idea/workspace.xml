@@ -12,7 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f19da60-8ae6-4cd6-bdfc-2d2562024a76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EmptySpace.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmptySpace.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameMap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameMap.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.hpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +35,7 @@
   <component name="ProjectId" id="1UWQNDWS19ppVxnCW8aho5Rkulh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -62,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575469828181</updated>
       <workItem from="1575469830771" duration="9970000" />
+      <workItem from="1575607686994" duration="5909000" />
     </task>
     <servers />
   </component>
@@ -73,7 +80,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
