@@ -14,6 +14,24 @@ Inventory::Inventory() {
 
 }
 
+Inventory::~Inventory() {
+
+    if(!isEmpty()) {
+
+        ListNode* itr = head;
+        ListNode* next = head->next;
+
+        while(itr) {
+
+            delete itr;
+            itr = next;
+
+        }
+
+    }
+    
+}
+
 bool Inventory::isEmpty() {
 
     return !head;

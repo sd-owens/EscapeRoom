@@ -26,6 +26,7 @@ private:
 
 public:
     explicit Inventory();
+    ~Inventory();
     bool isEmpty();
     bool isFull();
     void addItem(Item* item);
