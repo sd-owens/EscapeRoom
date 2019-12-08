@@ -5,7 +5,10 @@
 #ifndef GAMEMAP_HPP
 #define GAMEMAP_HPP
 
+#include <vector>
 #include "Space.hpp"
+
+
 
 enum Direction {north = 1, east, south, west};
 
@@ -14,16 +17,17 @@ private:
     Space* start;
     Space* end;
     int numSpaces;
+
 public:
     explicit GameMap(int);
     ~GameMap();
     void createMap();
-    Space& createSpace(int type);
     Space& createSpace(int type, int numBooks, Color color);
     void addSpace(Space&, Direction direction);
     int random(int min, int max);
     bool isEmpty();
     Space* findNext(Space*);
+    void printMap();
 
 
 };

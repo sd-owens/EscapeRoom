@@ -12,12 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f19da60-8ae6-4cd6-bdfc-2d2562024a76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EmptySpace.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmptySpace.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GameMap.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GameMap.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameMap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameMap.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameMap.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575469828181</updated>
       <workItem from="1575469830771" duration="9970000" />
-      <workItem from="1575607686994" duration="5909000" />
+      <workItem from="1575607686994" duration="16211000" />
     </task>
     <servers />
   </component>
@@ -87,5 +85,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/GameMap.cpp</url>
+          <line>194</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

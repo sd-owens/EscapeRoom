@@ -3,6 +3,7 @@
 //
 
 #include <random>
+#include <iostream>
 #include "GameMap.hpp"
 #include "ChestSpace.hpp"
 #include "DoorSpace.hpp"
@@ -14,23 +15,34 @@ GameMap::GameMap(int numSpaces) {
     this->numSpaces = numSpaces;
     this->start = nullptr;
     this->end = nullptr;
+    createMap();
+    printMap();
 
 }
 
 GameMap::~GameMap() {
 
     Space* itr = start;
-    Space* next;
+    Space* next = nullptr;
 
     while (!isEmpty()) {
 
-        if(!findNext(itr)) {
+        if(itr == end) {
+
             delete itr;
             itr = nullptr;
+            start = nullptr;
+            end = nullptr;
+
         } else {
+
             next = findNext(itr);
             delete itr;
-            itr = next;
+
+            if(next) {
+                itr = next;
+            }
+
         }
     }
 }
@@ -39,15 +51,12 @@ void GameMap::createMap() {
 
     Space* space;
 
-    // 0 = EmptySpace
-    // 1 = ChestSpace
-    // 2 = BookSpace
-    // 3 = DoorSpace
+    // 0 = EmptySpace, 1 = ChestSpace, 2 = BookSpace, 3 = DoorSpace
 
     int roomTypes [] = {0, 2, 2, 1, 2, 3};
     int numBooks [] = {3, 6, 5};                // chest combination
     Color colors [] = {Blue, Green, Red};
-    Direction direction [] = {north, east, north, east, south, south};
+    Direction direction [] = {south, east, south, south, west, south};
 
     //initial map is 6 spaces
 
@@ -57,44 +66,41 @@ void GameMap::createMap() {
 
             space = &(createSpace(roomTypes[i],numBooks[i], colors[i]));
             addSpace(*space, direction[i]);
+
+
         } else {
-            space = &(createSpace(roomTypes[i]));
+
+            space = &(createSpace(roomTypes[i], 0, Red));
             addSpace(*space, direction[i]);
+
         }
 
     }
 
 }
 
-Space& GameMap::createSpace(int type) {
+Space& GameMap::createSpace(int type, int numBooks, Color color) {
 
     Space* space = nullptr;
 
     switch (type){
         case 1:
-            space =  new ChestSpace();
+            space = new ChestSpace();
             break;
         case 2:
-            space = new DoorSpace();
+            space = new BookSpace(numBooks, color);
             break;
         case 3:
-            space = new EmptySpace();
+            space = new DoorSpace();
             break;
+        default:
+            space = new EmptySpace();
     }
 
     return *space;
 }
 
-Space& GameMap::createSpace(int type, int numBooks, Color color) {
-
-    Space* space = new BookSpace(numBooks, color);
-
-    return *space;
-}
-
 void GameMap::addSpace(Space& space, Direction direction) {
-
-    static int count {0};   //static variable to
 
     if(!start) {
 
@@ -109,16 +115,22 @@ void GameMap::addSpace(Space& space, Direction direction) {
                 end->north = &space;
                 this->end = &space;
                 break;
+
             case east:
                 end->east = &space;
                 this->end = &space;
                 break;
+
             case south:
                 end->south = &space;
                 this->end = &space;
+                break;
+
             case west:
+
                 end->west = &space;
                 this->end = &space;
+                break;
         }
 
     }
@@ -149,7 +161,7 @@ bool GameMap::isEmpty() {
     return !start;
 }
 
-Space* GameMap::findNext(Space * itr) {
+Space* GameMap::findNext(Space* itr) {
 
     if(itr->north) {
         return itr->north;
@@ -165,6 +177,68 @@ Space* GameMap::findNext(Space * itr) {
 
     } else {
         return nullptr;
+    }
+}
+
+void GameMap::printMap() {
+
+    int row {0};
+    int col {5};
+
+    int yCoord [] = {0, 0, 0, 0, 0, 0};
+    int xCoord [] = {0, 0, 0, 0, 0, 0};
+
+    Space* itr = start;
+    int i = 0;  //counter for array index in while loop
+
+    while (itr) {
+
+        yCoord[i] = row;
+        xCoord[i] = col;
+        i++;
+
+        if(itr->north) {
+           row -= 1;
+           itr = itr->north;
+
+        } else if (itr->east) {
+            col += 1;
+            itr = itr->east;
+
+        } else if (itr->south) {
+            row += 1;
+            itr = itr->south;
+
+        } else if (itr->west) {
+            col -= 1;
+            itr = itr->west;
+
+        } else {
+            itr = nullptr;
+
+        }
 
     }
+    for (int y = 0; y < 10; y++) {
+
+        for (int x = 0; x < 10; x++) {
+
+            std::cout << "[#]";
+
+        }
+
+        std::cout << "\n";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

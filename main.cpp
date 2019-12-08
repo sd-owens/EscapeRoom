@@ -1,11 +1,13 @@
 #include <iostream>
 #include "BookSpace.hpp"
+#include "GameMap.hpp"
 
 int main() {
 
-    BookSpace bs (4, Red);
+    auto* gm = new GameMap(6);
 
-    bs.search();
+    delete gm;
+    gm = nullptr;
 
     return 0;
 }
