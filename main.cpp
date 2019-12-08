@@ -4,7 +4,8 @@
 
 int main() {
 
-    auto* gm = new GameMap(6);
+    auto* gm = new GameMap();
+    gm->printMap();
 
     delete gm;
     gm = nullptr;

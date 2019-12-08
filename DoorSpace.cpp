@@ -6,8 +6,8 @@
 #include <iostream>
 #include "DoorSpace.hpp"
 
-DoorSpace::DoorSpace()
-    :Space(){
+DoorSpace::DoorSpace(std::string& name)
+    :Space(name){
     locked = true;
 }
 

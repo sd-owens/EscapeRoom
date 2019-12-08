@@ -14,7 +14,7 @@ private:
     int numBooks;
     Color colorBooks;
 public:
-    explicit BookSpace(int, Color);
+    explicit BookSpace(std::string&, int, Color);
     void search() override;
 //    void do_print(std::ostream&) override;
 

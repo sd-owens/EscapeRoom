@@ -4,9 +4,12 @@
 
 #include "Space.hpp"
 
-Space::Space() {
+Space::Space(std::string& name) {
 
     player = nullptr;
+    this->name = name;
+    this->row = 0;
+    this->col = 0;
     north = nullptr;
     east = nullptr;
     south = nullptr;
@@ -22,6 +25,22 @@ bool Space::isOccupied() {
 
 void Space::showDoors() {
 
+}
+
+void Space::setRow(int row) {
+    Space::row = row;
+}
+
+void Space::setCol(int col) {
+    Space::col = col;
+}
+
+int Space::getRow() const {
+    return row;
+}
+
+int Space::getCol() const {
+    return col;
 }
 
 

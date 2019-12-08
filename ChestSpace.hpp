@@ -12,7 +12,7 @@ class ChestSpace : public Space {
 private:
     bool locked;
 public:
-    explicit ChestSpace();
+    explicit ChestSpace(std::string& name);
     bool isLocked();
     void openChest(int);
     void search() override;

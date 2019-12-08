@@ -4,19 +4,19 @@
 
 #include <random>
 #include <iostream>
+#include <iomanip>
 #include "GameMap.hpp"
 #include "ChestSpace.hpp"
 #include "DoorSpace.hpp"
 #include "BookSpace.hpp"
 #include "EmptySpace.hpp"
 
-GameMap::GameMap(int numSpaces) {
+GameMap::GameMap() {
 
-    this->numSpaces = numSpaces;
+    this->numSpaces = 9;
     this->start = nullptr;
     this->end = nullptr;
     createMap();
-    printMap();
 
 }
 
@@ -49,28 +49,31 @@ GameMap::~GameMap() {
 
 void GameMap::createMap() {
 
+    static int bookSpace;       // static variable to maintain count of bookSpaces created;
+
     Space* space;
 
     // 0 = EmptySpace, 1 = ChestSpace, 2 = BookSpace, 3 = DoorSpace
-
-    int roomTypes [] = {0, 2, 2, 1, 2, 3};
+    std::string names [] = {" Start", " 1st Library", " Empty Corridor",
+                            " 2nd Library", " Chest Room", " Empty Corridor",
+                            " 3rd Library", " Empty Corridor", " Iron door"};
+    int roomTypes [] = {0, 2, 0, 2, 1, 0, 2, 0, 3};
     int numBooks [] = {3, 6, 5};                // chest combination
     Color colors [] = {Blue, Green, Red};
-    Direction direction [] = {south, east, south, south, west, south};
+    Direction direction [] = {south, east, east, south, south, west, north, west, south};
 
-    //initial map is 6 spaces
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < numSpaces; i++) {
 
         if(roomTypes[i] == 2) {
 
-            space = &(createSpace(roomTypes[i],numBooks[i], colors[i]));
+            space = &(createSpace(names[i],roomTypes[i],numBooks[bookSpace], colors[bookSpace]));
             addSpace(*space, direction[i]);
-
+            bookSpace++;
 
         } else {
 
-            space = &(createSpace(roomTypes[i], 0, Red));
+            space = &(createSpace(names[i], roomTypes[i], 0, Red));
             addSpace(*space, direction[i]);
 
         }
@@ -79,22 +82,22 @@ void GameMap::createMap() {
 
 }
 
-Space& GameMap::createSpace(int type, int numBooks, Color color) {
+Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color color) {
 
     Space* space = nullptr;
 
     switch (type){
         case 1:
-            space = new ChestSpace();
+            space = new ChestSpace(name);
             break;
         case 2:
-            space = new BookSpace(numBooks, color);
+            space = new BookSpace(name, numBooks, color);
             break;
         case 3:
-            space = new DoorSpace();
+            space = new DoorSpace(name);
             break;
         default:
-            space = new EmptySpace();
+            space = new EmptySpace(name);
     }
 
     return *space;
@@ -102,36 +105,48 @@ Space& GameMap::createSpace(int type, int numBooks, Color color) {
 
 void GameMap::addSpace(Space& space, Direction direction) {
 
+    static int row = 0;
+    static int col = 0;
+
     if(!start) {
 
         this->start = &space;
         this->end = &space;
+        start->setRow(row);
+        start->setCol(col);
 
     } else {
 
         switch (direction) {
 
             case north:
+                row -= 1;
                 end->north = &space;
                 this->end = &space;
                 break;
 
             case east:
+                col += 1;
                 end->east = &space;
                 this->end = &space;
                 break;
 
             case south:
+                row += 1;
                 end->south = &space;
                 this->end = &space;
                 break;
 
             case west:
-
+                col -= 1;
                 end->west = &space;
                 this->end = &space;
                 break;
+
         }
+
+        end->setRow(row);
+        end->setCol(col);
 
     }
 
@@ -182,63 +197,48 @@ Space* GameMap::findNext(Space* itr) {
 
 void GameMap::printMap() {
 
-    int row {0};
-    int col {5};
+    Space *itr;
 
-    int yCoord [] = {0, 0, 0, 0, 0, 0};
-    int xCoord [] = {0, 0, 0, 0, 0, 0};
+    std::cout << std::string(76, '*') << std::endl;
 
-    Space* itr = start;
-    int i = 0;  //counter for array index in while loop
+    for (int j = 0; j < 3; j++) {
 
-    while (itr) {
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << "*" << std::endl;
 
-        yCoord[i] = row;
-        xCoord[i] = col;
-        i++;
+        for (int i = 0; i < 3; i++) {
 
-        if(itr->north) {
-           row -= 1;
-           itr = itr->north;
+                std::cout << "*";
+                itr = start;
 
-        } else if (itr->east) {
-            col += 1;
-            itr = itr->east;
+                while (itr) {
 
-        } else if (itr->south) {
-            row += 1;
-            itr = itr->south;
+                    if (itr->getCol() == i && itr->getRow() == j) {
 
-        } else if (itr->west) {
-            col -= 1;
-            itr = itr->west;
+                        std::cout << std::setw(24) << std::left << itr->name;
 
-        } else {
-            itr = nullptr;
+                    }
 
+                    itr = findNext(itr);
+                }
+
+
+            }
+            std::cout << "*" << std::endl;
+
+            for(int k = 0; k < 3; k++) {
+
+                std::cout << std::setw(25) << std::left << "*";
+                std::cout << std::setw(25) << std::left << "*";
+                std::cout << std::setw(25) << std::left << "*";
+                std::cout << "*" << std::endl;
+
+            }
+
+            std::cout << std::string(76, '*') << std::endl;
         }
 
+
     }
-    for (int y = 0; y < 10; y++) {
-
-        for (int x = 0; x < 10; x++) {
-
-            std::cout << "[#]";
-
-        }
-
-        std::cout << "\n";
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-}

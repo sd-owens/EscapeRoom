@@ -6,8 +6,8 @@
 #include <sstream>
 #include "ChestSpace.hpp"
 
-ChestSpace::ChestSpace()
-    : Space(){
+ChestSpace::ChestSpace(std::string& name)
+    : Space(name){
     locked = true;
 }
 

@@ -12,7 +12,7 @@ class DoorSpace : public Space {
 private:
     bool locked;
 public:
-    explicit DoorSpace();
+    explicit DoorSpace(std::string& name);
     bool isLocked();
     void openDoor();
     void search() override;

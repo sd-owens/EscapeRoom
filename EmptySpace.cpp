@@ -6,6 +6,11 @@
 #include <sstream>
 #include "EmptySpace.hpp"
 
+EmptySpace::EmptySpace(std::string &name)
+    : Space(name){
+
+}
+
 void EmptySpace::search() {
 
     std::stringstream ss;

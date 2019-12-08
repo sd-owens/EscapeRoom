@@ -19,16 +19,15 @@ private:
     int numSpaces;
 
 public:
-    explicit GameMap(int);
+    explicit GameMap();
     ~GameMap();
     void createMap();
-    Space& createSpace(int type, int numBooks, Color color);
+    Space& createSpace(std::string& name, int type, int numBooks, Color color);
     void addSpace(Space&, Direction direction);
     int random(int min, int max);
     bool isEmpty();
     Space* findNext(Space*);
     void printMap();
-
 
 };
 

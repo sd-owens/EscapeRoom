@@ -6,8 +6,8 @@
 #include <iostream>
 #include "BookSpace.hpp"
 
-BookSpace::BookSpace(int books, Color color)
-    : Space() {
+BookSpace::BookSpace(std::string& name, int books, Color color)
+    : Space(name) {
     numBooks = books;
     colorBooks = color;
 }

@@ -11,20 +11,25 @@ enum Color {Blue , Green, Red};
 
 class Space {
     friend class GameMap;
-//    friend std::ostream& operator << (std::ostream& os, const Color& color);
-//    virtual void do_print(std::ostream& str) = 0;
 protected:
     Player* player;
+    std::string name;
+    int row;
+    int col;
     Space* north;
     Space* east;
     Space* south;
     Space* west;
 public:
-    explicit Space();
+    explicit Space(std::string& name);
     virtual ~Space();
     virtual void search() = 0;
     virtual bool isOccupied();
     void showDoors();
+    void setRow(int row);
+    void setCol(int col);
+    int getRow() const;
+    int getCol() const;
 
 };
 

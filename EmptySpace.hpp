@@ -11,6 +11,7 @@
 class EmptySpace : public Space {
 private:
 public:
+    explicit EmptySpace(std::string& name);
     void search() override;
 };
 
