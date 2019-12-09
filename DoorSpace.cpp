@@ -36,9 +36,9 @@ void DoorSpace::search() {
 
     std::stringstream ss;
 
-    ss << "You search the room and discover an solid iron bar door with an giant\n";
-    ss << "old metal padlock with a black metal skull embossed on the face\n";
-    ss << "Further down the corridor you can faintly see stone steps leading up\n";
+    ss << "You search the room and discover an solid iron bar door with a giant\n";
+    ss << "metal padlock with a black metal skull embossed on the face\n\n";
+    ss << "Beyond the door you can faintly see stone steps leading up!\n";
     ss << "This must be the way out! You have to find the key to the lock!\n";
 
     std::cout << ss.str();

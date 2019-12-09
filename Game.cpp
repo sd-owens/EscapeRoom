@@ -9,7 +9,7 @@
 Game::Game() {
 
     map = new GameMap();
-    player = new Player(2);
+    player = new Player(9);
 
 }
 
@@ -23,18 +23,15 @@ void Game::play() {
 
     map->start->setPlayer(player);   // set player at start Space;
 
+    map->printMap();
+
     int choice;
 
     do {
 
         printStatus();
-
-
-        map->printMap();
-        moveForward();
         searchRoom();
-
-
+        moveForward();
 
 
         player->useFlashLight();
@@ -70,22 +67,32 @@ void Game::searchRoom() {
         std::string clue = "Clue: 3 Blue Books";
         auto* books = new Item(clue);
         player->addItemToPack(books);
-        std::cout << "You've found a clue, you put it in your pack!\n";
+        std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " 2nd Library") {
         std::string clue = "Clue: 6 Green Books";
         auto* books = new Item(clue);
         player->addItemToPack(books);
-        std::cout << "You've found a clue, you put it in your pack!\n";
+        std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " 3rd Library") {
         std::string clue = "Clue: 5 Red Books";
         auto* books = new Item(clue);
         player->addItemToPack(books);
-        std::cout << "You've found a clue, you put it in your pack!\n";
+        std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
+
+    } else if (room->getName() == " Chest Room" && !room->isLocked()) {
+
+        std::string key = "Key";
+        auto* books = new Item(key);
+        player->addItemToPack(books);
+        std::cout << "\nYou've found the Skeleton key, you put it in your pack!\n\n";
+    } else {
+
+        std::cout << "\nYou don't think anything here can help solve the puzzle!\n\n";
     }
 
-    std::cout << "You don't think anything here can help solve the puzzle!\n";
+
 
 
 }
@@ -98,6 +105,6 @@ void Game::printStatus() {
 
     player->showBackpack();
 
-
+    map->printMap();
 
 }

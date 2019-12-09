@@ -13,7 +13,7 @@ private:
     bool locked;
 public:
     explicit DoorSpace(std::string& name);
-    bool isLocked();
+    bool isLocked() override;
     void openDoor();
     void search() override;
 };

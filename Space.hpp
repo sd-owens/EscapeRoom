@@ -24,7 +24,7 @@ public:
     explicit Space(std::string& name);
     virtual ~Space();
     virtual void search() = 0;
-    virtual bool isOccupied();
+    virtual bool isLocked();
     void showDoors();
     void setRow(int row);
     void setCol(int col);

@@ -19,12 +19,12 @@ Space::Space(std::string& name) {
 
 Space::~Space() = default;
 
-bool Space::isOccupied() {
-    return false;
-}
-
 void Space::showDoors() {
 
+}
+
+bool Space::isLocked() {
+    return false;
 }
 
 void Space::setRow(int row) {

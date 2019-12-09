@@ -13,12 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1f19da60-8ae6-4cd6-bdfc-2d2562024a76" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChestSpace.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ChestSpace.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoorSpace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DoorSpace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoorSpace.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/DoorSpace.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmptySpace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EmptySpace.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameMap.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameMap.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Space.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.hpp" afterDir="false" />
     </list>
@@ -75,7 +74,7 @@
       <updated>1575469828181</updated>
       <workItem from="1575469830771" duration="9970000" />
       <workItem from="1575607686994" duration="16211000" />
-      <workItem from="1575767589608" duration="21597000" />
+      <workItem from="1575767589608" duration="22528000" />
     </task>
     <servers />
   </component>
