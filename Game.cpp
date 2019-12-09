@@ -31,6 +31,8 @@ void Game::play() {
 
     do {
 
+
+
         choice = menu->roomMenu();
 
         switch (choice) {

@@ -27,6 +27,8 @@ public:
     int main();
     void introduction();
     int roomMenu();
+    int unlockMenu();
+    int comboMenu();
     int replay();
     void salutation();
 };

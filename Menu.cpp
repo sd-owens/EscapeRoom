@@ -84,6 +84,42 @@ int Menu::roomMenu() {
     return choice;
 }
 
+int Menu::unlockMenu() {
+
+    std::string input {};
+    int choice {};
+
+    std::cout << this->menuPrompts->at("unlockMenu");
+
+    do {
+        getline(std::cin, input);
+        choice = validateIntegerInput(input);
+        if(choice < 1 || choice > 5) {
+            std::cerr << "Must choose 1 - 5!\n";
+        }
+    } while(choice < 1 || choice > 5);
+
+    return choice;
+}
+
+int Menu::comboMenu() {
+
+    std::string input {};
+    int choice {};
+
+    std::cout << this->menuPrompts->at("comboMenu");
+
+    do {
+        getline(std::cin, input);
+        choice = validateIntegerInput(input);
+        if(choice < 1 || choice > 5) {
+            std::cerr << "Must choose 1 - 5!\n";
+        }
+    } while(choice < 1 || choice > 5);
+
+    return choice;
+}
+
 /*
  * Summary: Displays menu to the user and captures their choice, data is validated
  *          as a string and converted to an integer.  Used to obtain user's input for

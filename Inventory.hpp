@@ -32,6 +32,7 @@ public:
     bool isFull();
     void addItem(Item* item);
     void printInventory();
+    bool containsItem(std::string& name);
 
 };
 

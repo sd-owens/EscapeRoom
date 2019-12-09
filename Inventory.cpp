@@ -94,3 +94,20 @@ void Inventory::printInventory() {
     std::cout << std::endl;
 
 }
+
+bool Inventory::containsItem(std::string& name) {
+
+    ListNode* itr = head;
+
+    while(itr) {
+
+        if(itr->item->getName() == name) {
+            return true;
+            
+        } else {
+            itr = itr->next;
+        }
+    }
+
+    return false;
+}
