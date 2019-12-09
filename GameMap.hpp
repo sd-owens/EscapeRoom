@@ -28,6 +28,7 @@ public:
     int random(int min, int max);
     bool isEmpty();
     Space* findNext(Space*);
+    Space* findLast(Space*);
     void printMap();
     Space* playerLocation();
 

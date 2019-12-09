@@ -9,7 +9,7 @@
 Game::Game(Menu* menu) {
 
     map = new GameMap();
-    player = new Player(2);
+    player = new Player(9);
     this->menu = menu;
 
 }

@@ -187,21 +187,49 @@ bool GameMap::isEmpty() {
 
 Space* GameMap::findNext(Space* itr) {
 
-    if(itr->north) {
+    int next = itr->roomNum + 1;
+
+
+    if(itr->north && itr->north->roomNum == next) {
         return itr->north;
 
-    } else if (itr->east) {
+    } else if (itr->east && itr->east->roomNum == next) {
         return itr->east;
 
-    } else if (itr->south) {
+    } else if (itr->south && itr->south->roomNum == next) {
         return itr->south;
 
-    } else if (itr->west) {
+    } else if (itr->west && itr->west->roomNum == next) {
         return itr->west;
 
     } else {
+
         return nullptr;
     }
+}
+
+Space* GameMap::findLast(Space * itr) {
+
+    int last = itr->roomNum - 1;
+
+
+    if(itr->north && itr->north->roomNum == last) {
+        return itr->north;
+
+    } else if (itr->east && itr->east->roomNum == last) {
+        return itr->east;
+
+    } else if (itr->south && itr->south->roomNum == last) {
+        return itr->south;
+
+    } else if (itr->west && itr->west->roomNum == last) {
+        return itr->west;
+
+    } else {
+
+        return nullptr;
+    }
+
 }
 
 void GameMap::printMap() {
