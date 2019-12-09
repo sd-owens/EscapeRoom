@@ -16,7 +16,6 @@
     int main() {
 
         int option {};
-        std::string input{};
 
         auto* data = new MenuData();
         auto* menu = new Menu(data);

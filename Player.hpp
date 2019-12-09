@@ -15,11 +15,12 @@ private:
     Inventory* backpack;
 public:
     explicit Player (int);
+    ~Player();
     int getFlashLight() const;
     void initBackpack();
     void useFlashLight();
     void showBackpack();
-    void addItemToPack(Item* item);
+    void addItemToPack(Item& item);
     bool hasItem(std::string& name);
 };
 

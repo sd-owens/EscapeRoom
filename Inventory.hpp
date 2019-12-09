@@ -13,8 +13,8 @@ class Inventory {
 private:
     struct ListNode{
 
-        explicit ListNode(Item* item) {
-            this->item = item;
+        explicit ListNode(Item& item) {
+            this->item = &item;
             next = nullptr;
         }
         Item* item;
@@ -30,7 +30,7 @@ public:
     ~Inventory();
     bool isEmpty();
     bool isFull();
-    void addItem(Item* item);
+    void addItem(Item& item);
     void printInventory();
     bool containsItem(std::string& name);
 

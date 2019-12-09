@@ -2,7 +2,7 @@
 # makefile syntax adapted from example provided TA Harlan James <waldroha@oregonstat.edu>
 
 # Project Name
-PROJ = Fibonacci
+PROJ = Trapped
 # Compiler
 CXX = g++
 
@@ -14,7 +14,7 @@ CXXFLAGS = -Wall -g
 
 # Source Files
 SRC = main.cpp
-SRC += FibonacciNr.cpp FibonacciR.cpp
+SRC += BookSpace.cpp ChestSpace.cpp DoorSpace.cpp EmptySpace.cpp Game.cpp GameMap.cpp Inventory.cpp Item.cpp Menu.cpp MenuData.cpp Player.cpp Space.cpp validInput.cpp
 
 # Create an object for each source file
 OBJ = $(SRC:.cpp=.o)

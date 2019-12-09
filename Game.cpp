@@ -16,8 +16,13 @@ Game::Game(Menu* menu) {
 
 Game::~Game() {
 
+    Space* space = map->playerLocation();
+    delete player;
+    space->setPlayer(nullptr);
     delete map;
+    player = nullptr;
     map = nullptr;
+
 }
 
 void Game::play() {
@@ -142,26 +147,26 @@ void Game::searchRoom() {
     if(room->getName() == " 1st Library") {
         std::string clue = "Clue: 3 Blue Books";
         auto* books = new Item(clue);
-        player->addItemToPack(books);
+        player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " 2nd Library") {
         std::string clue = "Clue: 6 Green Books";
         auto* books = new Item(clue);
-        player->addItemToPack(books);
+        player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " 3rd Library") {
         std::string clue = "Clue: 5 Red Books";
         auto* books = new Item(clue);
-        player->addItemToPack(books);
+        player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " Chest Room" && !room->isLocked()) {
 
         std::string key = "Key";
         auto* books = new Item(key);
-        player->addItemToPack(books);
+        player->addItemToPack(*books);
         std::cout << "\nYou've found the Skeleton key, you put it in your pack!\n\n";
     } else {
 

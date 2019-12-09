@@ -52,7 +52,7 @@ bool Inventory::isFull() {
 
 }
 
-void Inventory::addItem(Item* item) {
+void Inventory::addItem(Item& item) {
 
     if (isFull()) {
 

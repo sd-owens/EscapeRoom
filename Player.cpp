@@ -12,12 +12,20 @@ Player::Player(int value) {
     initBackpack();
     flashLight = value;
 }
+
+Player::~Player() {
+
+    delete backpack;
+    backpack = nullptr;
+}
+
 void Player::initBackpack() {
 
     std::string flashlight = "Old Flashlight";
 
+    auto* item = new Item(flashlight);
 
-    backpack->addItem(new Item(flashlight));
+    backpack->addItem(*item);
 
 }
 
@@ -36,7 +44,7 @@ void Player::showBackpack() {
     backpack->printInventory();
 }
 
-void Player::addItemToPack(Item* item) {
+void Player::addItemToPack(Item& item) {
 
     backpack->addItem(item);
 

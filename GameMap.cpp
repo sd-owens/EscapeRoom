@@ -41,6 +41,7 @@ GameMap::~GameMap() {
             delete itr;
 
             if(next) {
+
                 itr = next;
             }
 
@@ -190,7 +191,7 @@ int GameMap::random(int min, int max) {
 
 bool GameMap::isEmpty() {
 
-    return !start;
+    return !start && !end;
 }
 
 Space* GameMap::findNext(Space* itr) {
