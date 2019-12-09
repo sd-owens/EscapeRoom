@@ -8,13 +8,15 @@
 
 #include "Space.hpp"
 #include "GameMap.hpp"
+#include "Menu.hpp"
 
 class Game {
 private:
     GameMap* map;
     Player* player;
+    Menu* menu;
 public:
-    explicit Game();
+    explicit Game(Menu* menu);
     ~Game();
     void play();
     bool moveForward();

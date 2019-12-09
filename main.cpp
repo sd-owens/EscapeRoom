@@ -29,7 +29,7 @@
 
             if(option == 1) {
 
-                game = new Game();
+                game = new Game(menu);
                 game->play();
 
                 option = menu->replay();

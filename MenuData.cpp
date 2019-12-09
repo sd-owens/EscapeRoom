@@ -62,6 +62,13 @@ void MenuData::populateMenuDataMap() {
     this->menuData->emplace("mainMenu", "\nMain Menu\n\nChoose an option:\n\n"
                                         "1. Play Game \n2. Exit the game\n");
 
+    this->menuData->emplace("intro", "\nYou awake to find yourself in a cold, dark, musty smelling concrete\n"
+                                   "room without any memory of how you arrived here. The only light you see\n"
+                                   "is cast from an old flashlight you find lying conveniently by your side.\n"
+                                   "You pick up the flashlight and take a look around...\n\n");
+
+    this->menuData->emplace("gameMenu", "Choose an option:\n\n1. Move Forward.\n2. Move Back\n");
+
     this->menuData->emplace("replayMenu", "\nChoose an option:\n\n1. Play Again?\n2. Exit!\n");
 
     this->menuData->emplace("outputPrompt", "\nThanks for playing Trapped!, Goodbye!\n");

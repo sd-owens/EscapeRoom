@@ -6,10 +6,11 @@
 #include "Game.hpp"
 #include "GameMap.hpp"
 
-Game::Game() {
+Game::Game(Menu* menu) {
 
     map = new GameMap();
-    player = new Player(9);
+    player = new Player(2);
+    this->menu = menu;
 
 }
 
@@ -21,22 +22,31 @@ Game::~Game() {
 
 void Game::play() {
 
+    int choice;
+
     map->start->setPlayer(player);   // set player at start Space;
 
-    map->printMap();
-
-    int choice;
+    menu->introduction();
 
     do {
 
-        printStatus();
         searchRoom();
-        moveForward();
+        printStatus();
+        choice = menu->gameMenu();
 
+        if(choice == 1) {
+            moveForward();
+        } else {
+            moveBackward();
+        }
 
         player->useFlashLight();
 
     } while (player->getFlashLight() > 0);
+
+    std::cout << "\nThe flashlight batteries are dead, the light slowly fades.....\n\n";
+
+    std::cout << "DARKNESS ENGULFS YOU, YOU WILL NEVER ESCAPE NOW!  GAME OVER!\n\n";
 
 }
 
@@ -55,6 +65,10 @@ bool Game::moveForward() {
 
     return false;
 
+}
+
+bool Game::moveBackward() {
+    return true;
 }
 
 void Game::searchRoom() {
@@ -91,9 +105,6 @@ void Game::searchRoom() {
 
         std::cout << "\nYou don't think anything here can help solve the puzzle!\n\n";
     }
-
-
-
 
 }
 

@@ -13,13 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1f19da60-8ae6-4cd6-bdfc-2d2562024a76" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChestSpace.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ChestSpace.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DoorSpace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DoorSpace.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DoorSpace.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/DoorSpace.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmptySpace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EmptySpace.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Space.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MenuData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +73,7 @@
       <updated>1575469828181</updated>
       <workItem from="1575469830771" duration="9970000" />
       <workItem from="1575607686994" duration="16211000" />
-      <workItem from="1575767589608" duration="22528000" />
+      <workItem from="1575767589608" duration="23618000" />
     </task>
     <servers />
   </component>
