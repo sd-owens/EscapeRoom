@@ -30,6 +30,8 @@ public:
     void setCol(int col);
     int getRow() const;
     int getCol() const;
+    void setPlayer(Player *player);
+    Player *getPlayer() const;
 
 };
 

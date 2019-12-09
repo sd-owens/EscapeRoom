@@ -5,6 +5,7 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include "GameMap.hpp"
 #include "ChestSpace.hpp"
 #include "DoorSpace.hpp"
@@ -197,6 +198,8 @@ Space* GameMap::findNext(Space* itr) {
 
 void GameMap::printMap() {
 
+    std::cout << "Location: \n\n";
+
     Space *itr;
 
     std::cout << std::string(76, '*') << std::endl;
@@ -210,35 +213,62 @@ void GameMap::printMap() {
 
         for (int i = 0; i < 3; i++) {
 
-                std::cout << "*";
-                itr = start;
+            std::cout << "*";
+            itr = start;
 
-                while (itr) {
+            while (itr) {
 
-                    if (itr->getCol() == i && itr->getRow() == j) {
+                if (itr->getCol() == i && itr->getRow() == j) {
 
-                        std::cout << std::setw(24) << std::left << itr->name;
+                    std::cout << std::setw(24) << std::left << itr->name;
 
-                    }
-
-                    itr = findNext(itr);
                 }
 
-
+                itr = findNext(itr);
             }
+
+        }
+        std::cout << "*" << std::endl;
+
+        // logic to find location of player and print on Map (P) is here
+
+        for (int i = 0; i < 3; i++) {
+
+            std::cout << "*";
+            itr = start;
+
+            while (itr) {
+
+                if (itr->getCol() == i && itr->getRow() == j) {
+
+                    if(itr->getPlayer() != nullptr) {
+                        std::cout << std::setw(24) << std::left << " (P) is here";
+
+                    } else {
+                        std::cout << std::setw(24) << std::left << "";
+                    }
+
+                }
+
+                itr = findNext(itr);
+            }
+
+        }
+        std::cout << "*" << std::endl;
+
+        // formatting for last 3 rows of mape
+
+        for(int k = 0; k < 3; k++) {
+
+            std::cout << std::setw(25) << std::left << "*";
+            std::cout << std::setw(25) << std::left << "*";
+            std::cout << std::setw(25) << std::left << "*";
             std::cout << "*" << std::endl;
 
-            for(int k = 0; k < 3; k++) {
-
-                std::cout << std::setw(25) << std::left << "*";
-                std::cout << std::setw(25) << std::left << "*";
-                std::cout << std::setw(25) << std::left << "*";
-                std::cout << "*" << std::endl;
-
-            }
-
-            std::cout << std::string(76, '*') << std::endl;
         }
 
-
+        std::cout << std::string(76, '*') << std::endl;
     }
+
+    std::cout << std::endl;
+}

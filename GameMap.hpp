@@ -13,6 +13,7 @@
 enum Direction {north = 1, east, south, west};
 
 class GameMap {
+    friend class Game;
 private:
     Space* start;
     Space* end;
@@ -28,6 +29,7 @@ public:
     bool isEmpty();
     Space* findNext(Space*);
     void printMap();
+    Space* playerLocation();
 
 };
 

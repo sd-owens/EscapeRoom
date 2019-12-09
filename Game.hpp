@@ -7,14 +7,19 @@
 
 
 #include "Space.hpp"
+#include "GameMap.hpp"
 
 class Game {
 private:
-    Space* start;
-    Space* exit;
+    GameMap* map;
+    Player* player;
 public:
-    void createSpaces();
+    explicit Game();
+    ~Game();
     void play();
+    bool moveForward();
+    bool moveBackward();
+    void printStatus();
     void endGame();
 };
 

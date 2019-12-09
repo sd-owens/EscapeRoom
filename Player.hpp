@@ -7,20 +7,18 @@
 
 
 #include <string>
+#include "Inventory.hpp"
 
 class Player {
 private:
-    struct Item {
-        std::string name;
-    };
     int flashLight;
-    Item backpack [4];
+    Inventory* backpack;
 public:
     explicit Player (int);
     int getFlashLight() const;
     void initBackpack();
+    void useFlashLight();
     void showBackpack();
-
 };
 
 

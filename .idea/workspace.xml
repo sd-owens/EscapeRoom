@@ -12,9 +12,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f19da60-8ae6-4cd6-bdfc-2d2562024a76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Menu.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Menu.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MenuData.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MenuData.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validInput.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validInput.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameMap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameMap.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameMap.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Space.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Space.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +44,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UWQNDWS19ppVxnCW8aho5Rkulh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
@@ -67,7 +83,7 @@
       <updated>1575469828181</updated>
       <workItem from="1575469830771" duration="9970000" />
       <workItem from="1575607686994" duration="16211000" />
-      <workItem from="1575767589608" duration="12843000" />
+      <workItem from="1575767589608" duration="19509000" />
     </task>
     <servers />
   </component>
@@ -86,5 +102,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Game.cpp</url>
+          <line>25</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -82,7 +82,7 @@ void Inventory::printInventory() {
 
     ListNode* itr = head;
 
-    std::cout << "Inventory:\n";
+    std::cout << "Backpack contains:\n";
 
     while(itr) {
 

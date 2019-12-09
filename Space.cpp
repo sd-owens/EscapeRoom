@@ -43,4 +43,13 @@ int Space::getCol() const {
     return col;
 }
 
+void Space::setPlayer(Player *player) {
+
+    this->player = player;
+}
+
+Player* Space::getPlayer() const {
+    return this->player;
+}
+
 

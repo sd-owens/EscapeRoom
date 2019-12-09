@@ -7,25 +7,31 @@
 
 Player::Player(int value) {
 
-    flashLight = value;
+
+    this->backpack = new Inventory();
     initBackpack();
+    flashLight = value;
 }
 void Player::initBackpack() {
 
-    for (int i = 0; i < 4; i++){
+    std::string flashlight = "Flashlight";
 
-        backpack[i].name = "empty";
-    }
-}
 
-void Player::showBackpack() {
+    backpack->addItem(new Item(flashlight));
 
-    for (int i = 0; i < 4; i++){
-
-        std::cout << backpack[i].name << std::endl;
-    }
 }
 
 int Player::getFlashLight() const {
     return flashLight;
+}
+
+void Player::useFlashLight() {
+
+    this->flashLight--;
+
+}
+
+void Player::showBackpack() {
+
+    backpack->printInventory();
 }
