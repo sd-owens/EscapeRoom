@@ -19,6 +19,8 @@ public:
     explicit Game(Menu* menu);
     ~Game();
     void play();
+    void hasKeyMenu();
+    void noKeyMenu();
     bool moveForward();
     bool moveBackward();
     void searchRoom();

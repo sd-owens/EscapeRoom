@@ -103,7 +103,7 @@ bool Inventory::containsItem(std::string& name) {
 
         if(itr->item->getName() == name) {
             return true;
-            
+
         } else {
             itr = itr->next;
         }

@@ -41,3 +41,8 @@ void Player::addItemToPack(Item* item) {
     backpack->addItem(item);
 
 }
+
+bool Player::hasItem(std::string &name) {
+
+    return backpack->containsItem(name);
+}

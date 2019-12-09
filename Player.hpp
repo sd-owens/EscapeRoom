@@ -20,6 +20,7 @@ public:
     void useFlashLight();
     void showBackpack();
     void addItemToPack(Item* item);
+    bool hasItem(std::string& name);
 };
 
 

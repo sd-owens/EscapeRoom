@@ -23,6 +23,7 @@ Game::~Game() {
 void Game::play() {
 
     int choice;
+    std::string key {"key"};
 
     map->start->setPlayer(player);   // set player at start Space;
 
@@ -31,27 +32,10 @@ void Game::play() {
 
     do {
 
-
-
-        choice = menu->roomMenu();
-
-        switch (choice) {
-            case 1:
-                searchRoom();
-                break;
-            case 2:
-                player->showBackpack();
-                break;
-            case 3:
-                moveForward();
-                player->useFlashLight();
-                printStatus();
-                break;
-            case 4:
-                moveBackward();
-                player->useFlashLight();
-                printStatus();
-                break;
+        if (player->hasItem(key)) {
+            hasKeyMenu();
+        } else {
+            noKeyMenu();
         }
 
 
@@ -61,6 +45,57 @@ void Game::play() {
 
     std::cout << "DARKNESS ENGULFS YOU, YOU WILL NEVER ESCAPE NOW!  GAME OVER!\n\n";
 
+}
+
+void Game::hasKeyMenu() {
+
+    int choice = menu->roomMenu();
+
+    switch (choice) {
+        case 1:
+            searchRoom();
+            break;
+        case 2:
+            player->showBackpack();
+            break;
+        case 3:
+            moveForward();
+            player->useFlashLight();
+            printStatus();
+            break;
+        case 4:
+            moveBackward();
+            player->useFlashLight();
+            printStatus();
+            break;
+        case 5:
+            break;
+    }
+
+}
+
+void Game::noKeyMenu() {
+
+    int choice = menu->roomMenu();
+
+    switch (choice) {
+        case 1:
+            searchRoom();
+            break;
+        case 2:
+            player->showBackpack();
+            break;
+        case 3:
+            moveForward();
+            player->useFlashLight();
+            printStatus();
+            break;
+        case 4:
+            moveBackward();
+            player->useFlashLight();
+            printStatus();
+            break;
+    }
 }
 
 bool Game::moveForward() {
