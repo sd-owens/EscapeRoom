@@ -10,7 +10,7 @@ Inventory::Inventory() {
 
     this->head = nullptr;
     this->tail = nullptr;
-    this->maxItems = 4;
+    this->maxItems = 5;
     this->numItems = 0;
 
 }

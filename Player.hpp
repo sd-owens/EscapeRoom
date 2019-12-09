@@ -19,6 +19,7 @@ public:
     void initBackpack();
     void useFlashLight();
     void showBackpack();
+    void addItemToPack(Item* item);
 };
 
 

@@ -14,7 +14,7 @@ Player::Player(int value) {
 }
 void Player::initBackpack() {
 
-    std::string flashlight = "Flashlight";
+    std::string flashlight = "Old Flashlight";
 
 
     backpack->addItem(new Item(flashlight));
@@ -34,4 +34,10 @@ void Player::useFlashLight() {
 void Player::showBackpack() {
 
     backpack->printInventory();
+}
+
+void Player::addItemToPack(Item* item) {
+
+    backpack->addItem(item);
+
 }

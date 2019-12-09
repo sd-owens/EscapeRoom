@@ -52,4 +52,9 @@ Player* Space::getPlayer() const {
     return this->player;
 }
 
+const std::string &Space::getName() const {
+
+    return name;
+}
+
 

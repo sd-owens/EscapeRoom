@@ -32,6 +32,7 @@ public:
     int getCol() const;
     void setPlayer(Player *player);
     Player *getPlayer() const;
+    const std::string &getName() const;
 
 };
 

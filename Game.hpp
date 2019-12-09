@@ -19,6 +19,7 @@ public:
     void play();
     bool moveForward();
     bool moveBackward();
+    void searchRoom();
     void printStatus();
     void endGame();
 };

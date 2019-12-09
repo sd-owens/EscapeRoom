@@ -32,13 +32,7 @@ void Game::play() {
 
         map->printMap();
         moveForward();
-        map->printMap();
-        moveForward();
-
-
-
-
-
+        searchRoom();
 
 
 
@@ -63,6 +57,36 @@ bool Game::moveForward() {
     }
 
     return false;
+
+}
+
+void Game::searchRoom() {
+
+    Space* room = map->playerLocation();
+
+    room->search();
+
+    if(room->getName() == " 1st Library") {
+        std::string clue = "Clue: 3 Blue Books";
+        auto* books = new Item(clue);
+        player->addItemToPack(books);
+        std::cout << "You've found a clue, you put it in your pack!\n";
+
+    } else if (room->getName() == " 2nd Library") {
+        std::string clue = "Clue: 6 Green Books";
+        auto* books = new Item(clue);
+        player->addItemToPack(books);
+        std::cout << "You've found a clue, you put it in your pack!\n";
+
+    } else if (room->getName() == " 3rd Library") {
+        std::string clue = "Clue: 5 Red Books";
+        auto* books = new Item(clue);
+        player->addItemToPack(books);
+        std::cout << "You've found a clue, you put it in your pack!\n";
+    }
+
+    std::cout << "You don't think anything here can help solve the puzzle!\n";
+
 
 }
 
