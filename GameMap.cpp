@@ -272,3 +272,16 @@ void GameMap::printMap() {
 
     std::cout << std::endl;
 }
+
+Space* GameMap::playerLocation() {
+
+    Space* itr = start;
+
+    while (itr->getPlayer() == nullptr) {
+
+        itr = findNext(itr);
+
+    }
+
+    return itr;
+}

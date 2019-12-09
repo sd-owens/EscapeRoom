@@ -31,6 +31,9 @@ void Game::play() {
 
 
         map->printMap();
+        moveForward();
+        map->printMap();
+        moveForward();
 
 
 
@@ -46,7 +49,22 @@ void Game::play() {
 
 }
 
+bool Game::moveForward() {
 
+    Space* location = map->playerLocation();
+
+    Space* next = map->findNext(location);
+
+    if(next != nullptr) {
+
+        next->setPlayer(player);
+        location->setPlayer(nullptr);
+        return true;
+    }
+
+    return false;
+
+}
 
 void Game::printStatus() {
 
