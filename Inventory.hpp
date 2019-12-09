@@ -21,6 +21,7 @@ private:
         ListNode* next;
     };
     ListNode* head;
+    ListNode* tail;
     int maxItems;
     int numItems;
 

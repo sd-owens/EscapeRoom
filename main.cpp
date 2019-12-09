@@ -1,14 +1,15 @@
 #include <iostream>
 #include "BookSpace.hpp"
 #include "GameMap.hpp"
+#include "Inventory.hpp"
 
 int main() {
 
-    auto* gm = new GameMap();
-    gm->printMap();
 
-    delete gm;
-    gm = nullptr;
+
+
+
+
 
     return 0;
 }

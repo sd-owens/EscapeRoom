@@ -9,6 +9,7 @@
 Inventory::Inventory() {
 
     this->head = nullptr;
+    this->tail = nullptr;
     this->maxItems = 4;
     this->numItems = 0;
 
@@ -26,10 +27,18 @@ Inventory::~Inventory() {
             delete itr;
             itr = next;
 
+            if(itr) {
+                next = itr->next;
+            }
+
+
         }
 
+        head = nullptr;
+        tail = nullptr;
+
     }
-    
+
 }
 
 bool Inventory::isEmpty() {
@@ -56,11 +65,14 @@ void Inventory::addItem(Item* item) {
         if(isEmpty()) {
 
             head = thing;
+            tail = thing;
+            numItems++;
 
         } else {
 
-            head->next = thing;
-            head = thing;
+            tail->next = thing;
+            tail = thing;
+            numItems++;
 
         }
     }
@@ -70,12 +82,15 @@ void Inventory::printInventory() {
 
     ListNode* itr = head;
 
+    std::cout << "Inventory:\n";
+
     while(itr) {
 
-        std::cout << "Inventory:\n";
+
         std::cout << itr->item->getName() << std::endl;
         itr = itr->next;
 
     }
+    std::cout << std::endl;
 
 }
