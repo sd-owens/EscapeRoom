@@ -57,12 +57,6 @@ bool isValid(std::string input) {
 
 int validateIntegerInput(std::string& input){
 
-    if(input.at(input.size() - 1) == '%'){
-
-        input.erase(input.size() - 1, 1);   // strips off the % if used by user.
-
-    }
-
     while(input.empty() || !isValid(input)){
         //clears potential error flag on cin from invalid input.
         std::cerr << "Invalid option! Choose again.\n";

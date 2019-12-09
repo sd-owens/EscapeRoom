@@ -23,9 +23,9 @@
 
         Game* game;
 
-        do{
+        option = menu->main();
 
-            option = menu->main();
+        do{
 
             if(option == 1) {
 

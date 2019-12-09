@@ -24,6 +24,7 @@ Inventory::~Inventory() {
 
         while(itr) {
 
+            delete itr->item;
             delete itr;
             itr = next;
 

@@ -14,8 +14,9 @@ class Space {
 protected:
     Player* player;
     std::string name;
-    int row;
-    int col;
+    int roomNum;
+    int row;                            // used during addSpace to generate coordinator for printMap
+    int col;                              // used during addSpace to generate coordinator for printMap
     Space* north;
     Space* east;
     Space* south;

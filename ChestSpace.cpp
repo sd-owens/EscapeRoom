@@ -21,7 +21,7 @@ void ChestSpace::openChest(int value) {
 
     if(value == 365) {
         locked = false;
-        ss << "The chest is unlocked!  You find a large metal skeleton key inside,\n";
+        ss << "\nThe chest is unlocked!  You find a large metal skeleton key inside,\n";
         ss << "this might be the key to the iron door!\n";
 
     } else {

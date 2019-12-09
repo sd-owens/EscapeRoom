@@ -15,7 +15,7 @@ void EmptySpace::search() {
 
     std::stringstream ss;
 
-    ss << "You search the room and find that its just an empty corridor!\n";
+    ss << "\nYou search the room and find that its just an empty corridor!\n";
     std::cout << ss.str();
 
 }

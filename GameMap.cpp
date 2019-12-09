@@ -58,24 +58,27 @@ void GameMap::createMap() {
     std::string names [] = {" Start", " 1st Library", " Empty Corridor",
                             " 2nd Library", " Chest Room", " Empty Corridor",
                             " 3rd Library", " Empty Corridor", " Iron door"};
-    int roomTypes [] = {0, 2, 0, 2, 1, 0, 2, 0, 3};
-    int numBooks [] = {3, 6, 5};                // chest combination
-    Color colors [] = {Blue, Green, Red};
-    Direction direction [] = {south, east, east, south, south, west, north, west, south};
 
+    int roomTypes [] = {0, 2, 0, 2, 1, 0, 2, 0, 3};
+
+    int numBooks [] = {3, 6, 5};                // chest combination
+
+    Color colors [] = {Blue, Green, Red};
+
+    Direction forward [] = {south, east, east, south, south, west, north, west, south};
 
     for (int i = 0; i < numSpaces; i++) {
 
         if(roomTypes[i] == 2) {
 
             space = &(createSpace(names[i],roomTypes[i],numBooks[bookSpace], colors[bookSpace]));
-            addSpace(*space, direction[i]);
+            addSpace(*space, forward[i]);
             bookSpace++;
 
         } else {
 
             space = &(createSpace(names[i], roomTypes[i], 0, Red));
-            addSpace(*space, direction[i]);
+            addSpace(*space, forward[i]);
 
         }
 
@@ -84,6 +87,8 @@ void GameMap::createMap() {
 }
 
 Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color color) {
+
+    static int roomNum {1};  // used during room creation to allow backwards iteration
 
     Space* space = nullptr;
 
@@ -100,6 +105,9 @@ Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color col
         default:
             space = new EmptySpace(name);
     }
+
+    space->roomNum = roomNum;
+    roomNum++;
 
     return *space;
 }

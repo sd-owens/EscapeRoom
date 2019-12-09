@@ -16,7 +16,7 @@ void BookSpace::search() {
 
     std::stringstream ss;
 
-    ss << "You search the room and discover an old dusty book shelf\n";
+    ss << "\nYou search the room and discover an old dusty book shelf\n";
     ss << "with countless dust covered books, but your eye is drawn to\n";
     ss << numBooks << " " << (*this) << " books that appear out of place somehow.\n";
 
