@@ -117,6 +117,8 @@ void GameMap::addSpace(Space& space, Direction direction) {
     static int row = 0;
     static int col = 0;
 
+    Space* temp;
+
     if(!start) {
 
         this->start = &space;
@@ -126,30 +128,36 @@ void GameMap::addSpace(Space& space, Direction direction) {
 
     } else {
 
+        temp = end;
+
         switch (direction) {
 
             case north:
                 row -= 1;
                 end->north = &space;
                 this->end = &space;
+                end->south = temp;
                 break;
 
             case east:
                 col += 1;
                 end->east = &space;
                 this->end = &space;
+                end->west = temp;
                 break;
 
             case south:
                 row += 1;
                 end->south = &space;
                 this->end = &space;
+                end->north = temp;
                 break;
 
             case west:
                 col -= 1;
                 end->west = &space;
                 this->end = &space;
+                end->east = temp;
                 break;
 
         }

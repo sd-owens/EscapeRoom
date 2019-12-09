@@ -68,7 +68,20 @@ bool Game::moveForward() {
 }
 
 bool Game::moveBackward() {
-    return true;
+
+    Space* location = map->playerLocation();
+
+    Space* last = map->findLast(location);
+
+    if(last != nullptr) {
+
+        last->setPlayer(player);
+        location->setPlayer(nullptr);
+        return true;
+    }
+
+    return false;
+
 }
 
 void Game::searchRoom() {
