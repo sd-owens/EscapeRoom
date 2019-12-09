@@ -66,20 +66,20 @@ void Menu::introduction() {
     std::cout << this->menuPrompts->at("intro");
 }
 
-int Menu::gameMenu() {
+int Menu::roomMenu() {
 
     std::string input {};
     int choice {};
 
-    std::cout << this->menuPrompts->at("gameMenu");
+    std::cout << this->menuPrompts->at("roomMenu");
 
     do {
         getline(std::cin, input);
         choice = validateIntegerInput(input);
-        if(choice < 1 || choice > 2) {
-            std::cerr << "Must choose 1 or 2!\n";
+        if(choice < 1 || choice > 4) {
+            std::cerr << "Must choose 1 - 4!\n";
         }
-    } while(choice < 1 || choice > 2);
+    } while(choice < 1 || choice > 4);
 
     return choice;
 }

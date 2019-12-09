@@ -26,7 +26,7 @@ public:
     explicit Menu(MenuData* data);
     int main();
     void introduction();
-    int gameMenu();
+    int roomMenu();
     int replay();
     void salutation();
 };

@@ -274,6 +274,11 @@ void GameMap::printMap() {
         }
         std::cout << "*" << std::endl;
 
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << std::setw(25) << std::left << "*";
+        std::cout << "*" << std::endl;
+
         // logic to find location of player and print on Map (P) is here
 
         for (int i = 0; i < 3; i++) {
@@ -302,7 +307,7 @@ void GameMap::printMap() {
 
         // formatting for last 3 rows of mape
 
-        for(int k = 0; k < 3; k++) {
+        for(int k = 0; k < 2; k++) {
 
             std::cout << std::setw(25) << std::left << "*";
             std::cout << std::setw(25) << std::left << "*";

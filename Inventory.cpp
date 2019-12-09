@@ -32,7 +32,6 @@ Inventory::~Inventory() {
                 next = itr->next;
             }
 
-
         }
 
         head = nullptr;
@@ -83,7 +82,7 @@ void Inventory::printInventory() {
 
     ListNode* itr = head;
 
-    std::cout << "Backpack contains:\n";
+    std::cout << "\nBackpack contains:\n";
 
     while(itr) {
 

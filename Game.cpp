@@ -27,20 +27,31 @@ void Game::play() {
     map->start->setPlayer(player);   // set player at start Space;
 
     menu->introduction();
+    printStatus();
 
     do {
 
-        searchRoom();
-        printStatus();
-        choice = menu->gameMenu();
+        choice = menu->roomMenu();
 
-        if(choice == 1) {
-            moveForward();
-        } else {
-            moveBackward();
+        switch (choice) {
+            case 1:
+                searchRoom();
+                break;
+            case 2:
+                player->showBackpack();
+                break;
+            case 3:
+                moveForward();
+                player->useFlashLight();
+                printStatus();
+                break;
+            case 4:
+                moveBackward();
+                player->useFlashLight();
+                printStatus();
+                break;
         }
 
-        player->useFlashLight();
 
     } while (player->getFlashLight() > 0);
 
@@ -77,6 +88,7 @@ bool Game::moveBackward() {
 
         last->setPlayer(player);
         location->setPlayer(nullptr);
+
         return true;
     }
 
@@ -126,8 +138,6 @@ void Game::printStatus() {
     std::cout << "\n*** Situation Update ***\n\n";
 
     std::cout << "Flashlight charge remaining: " << player->getFlashLight() << " turns\n\n";
-
-    player->showBackpack();
 
     map->printMap();
 
