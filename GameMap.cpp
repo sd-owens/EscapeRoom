@@ -58,7 +58,7 @@ void GameMap::createMap() {
     // 0 = EmptySpace, 1 = ChestSpace, 2 = BookSpace, 3 = DoorSpace
     std::string names [] = {" Start", " 1st Library", " Empty Corridor",
                             " 2nd Library", " Chest Room", " Empty Corridor",
-                            " 3rd Library", " Empty Corridor", " Iron door"};
+                            " 3rd Library", " Empty Corridor", " Iron Door"};
 
     int roomTypes [] = {0, 2, 0, 2, 1, 0, 2, 0, 3};
 

@@ -8,6 +8,7 @@ Space::Space(std::string& name) {
 
     player = nullptr;
     this->name = name;
+    this->locked = true;
     this->row = 0;
     this->col = 0;
     north = nullptr;
@@ -19,12 +20,13 @@ Space::Space(std::string& name) {
 
 Space::~Space() = default;
 
-void Space::showDoors() {
-
-}
-
 bool Space::isLocked() {
     return false;
+}
+
+void Space::unlock() {
+
+    this->locked = false;
 }
 
 void Space::setRow(int row) {

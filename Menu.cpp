@@ -109,13 +109,29 @@ int Menu::comboMenu() {
 
     std::cout << this->menuPrompts->at("comboMenu");
 
+
+    getline(std::cin, input);
+    choice = validateIntegerInput(input);
+
+
+
+    return choice;
+}
+
+int Menu::tryAgain() {
+
+    std::string input {};
+    int choice {};
+
+    std::cout << this->menuPrompts->at("tryAgain");
+
     do {
         getline(std::cin, input);
         choice = validateIntegerInput(input);
-        if(choice < 1 || choice > 5) {
-            std::cerr << "Must choose 1 - 5!\n";
+        if(choice < 1 || choice > 2) {
+            std::cerr << "Must choose 1 or 2!\n";
         }
-    } while(choice < 1 || choice > 5);
+    } while(choice < 1 || choice > 2);
 
     return choice;
 }

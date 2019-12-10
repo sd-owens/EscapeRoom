@@ -29,6 +29,7 @@ public:
     int roomMenu();
     int unlockMenu();
     int comboMenu();
+    int tryAgain();
     int replay();
     void salutation();
 };

@@ -14,7 +14,7 @@ private:
 public:
     explicit ChestSpace(std::string& name);
     bool isLocked() override;
-    void openChest(int);
+    void unlock() override;
     void search() override;
 };
 

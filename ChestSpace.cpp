@@ -15,27 +15,18 @@ bool ChestSpace::isLocked() {
     return locked;
 }
 
-void ChestSpace::openChest(int value) {
+void ChestSpace::unlock() {
 
-    std::stringstream ss;
+    locked = false;
 
-    if(value == 365) {
-        locked = false;
-        ss << "\nThe chest is unlocked!  You find a large metal skeleton key inside,\n";
-        ss << "this might be the key to the iron door!\n";
-
-    } else {
-        ss << "The combination did not work! I must be missing something...\n";
-
-    }
-    std::cout << ss.str();
 }
 
 void ChestSpace::search() {
 
     std::stringstream ss;
 
-    ss << "You search the room and discover an old iron chest with a fancy\n";
-    ss << "new combination lock ?!?  You must have to find the combination!\n";
+    ss << "\nYou search the room and discover an old iron chest with a fancy\n";
+    ss << "new combination lock?!? The combo requires 3 digits...\n";
+
     std::cout << ss.str();
 }

@@ -15,17 +15,19 @@ private:
     GameMap* map;
     Player* player;
     Menu* menu;
+    //bool chestLocked = true;
 public:
     explicit Game(Menu* menu);
     ~Game();
     void play();
-    void hasKeyMenu();
+    int hasKeyMenu();
     void noKeyMenu();
     bool moveForward();
     bool moveBackward();
     void searchRoom();
     void printStatus();
-    void endGame();
+    void enterCombo();
+    int endGame();
 };
 
 

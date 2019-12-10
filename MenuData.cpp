@@ -71,10 +71,11 @@ void MenuData::populateMenuDataMap() {
                                         "3. Move to next room\n4. Move back to last room\n");
 
     this->menuData->emplace("unlockMenu", "Choose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
-                                        "3. Move to next room\n4. Move back to last room\n5.Open Door\n");
+                                        "3. Move to next room\n4. Move back to last room\n5. Open Door\n");
 
-    this->menuData->emplace("comboMenu", "Choose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
-                                          "3. Move to next room\n4. Move back to last room\n5.Enter Combination\n");
+    this->menuData->emplace("comboMenu", "\nEnter Combination:\n");
+
+    this->menuData->emplace("tryAgain", "\nTry again?\n1. Yes\n2. No\n");
 
     this->menuData->emplace("replayMenu", "\nChoose an option:\n\n1. Play Again?\n2. Exit!\n");
 

@@ -14,6 +14,7 @@ class Space {
 protected:
     Player* player;
     std::string name;
+    bool locked;
     int roomNum;
     int row;                            // used during addSpace to generate coordinator for printMap
     int col;                              // used during addSpace to generate coordinator for printMap
@@ -26,7 +27,7 @@ public:
     virtual ~Space();
     virtual void search() = 0;
     virtual bool isLocked();
-    void showDoors();
+    virtual void unlock();
     void setRow(int row);
     void setCol(int col);
     int getRow() const;
