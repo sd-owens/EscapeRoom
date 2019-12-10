@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Program name: Final Project - Trapped! A C++ Escape Room Adventure
  * Author: Steven Owens
- * Date: 11/23/2019
+ * Date: 12/09/2019
  * Description: This is an escape room style game with a twist. You must solve the
  *              puzzle to find the skeleton key that unlocks the door to safety,
  *              but you must do so before the batteries in your flashlight are dead.
@@ -14,16 +14,20 @@
  *              Books, and 5 Red books.  Alphabetizing the book colors and reading
  *              their quantity in sequence solves the riddle to unlock the chest.
  *********************************************************************************/
-#include <random>
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 #include "GameMap.hpp"
 #include "ChestSpace.hpp"
 #include "DoorSpace.hpp"
 #include "BookSpace.hpp"
 #include "EmptySpace.hpp"
-
+/*
+ * Summary: Custom constructor for the class GameMap that inits its private
+ *          member variable pointers to nullptr, numSpaces to hardcoded value of 9.
+ *          Once fields are set, it calls the createMap() method.
+ * Param: none
+ * Returns: N/A
+ */
 GameMap::GameMap() {
 
     this->numSpaces = 9;
@@ -32,7 +36,13 @@ GameMap::GameMap() {
     createMap();
 
 }
-
+/*
+ * Summary: Custom destructor for the class GameMap that iterates through the spaces
+ *          in the forward direction freeing allocated memory, stops once the findNext()
+ *          method returns a nullptr.
+ * Param: none
+ * Returns: N/A
+ */
 GameMap::~GameMap() {
 
     Space* itr = start;
@@ -60,7 +70,14 @@ GameMap::~GameMap() {
         }
     }
 }
-
+/*
+ * Summary: Method to handle instantion of the 9 required Space type object of various
+ *          derived types based on local hard-coded arrays.  Calls the respective create
+ *          space method to instiantiate the object and then passes the object by
+ *          reference to the addSpace method to link the Spaces together.
+ * Param: none
+ * Returns: void
+ */
 void GameMap::createMap() {
 
     static int bookSpace;       // static variable to maintain count of bookSpaces created;
@@ -98,7 +115,14 @@ void GameMap::createMap() {
     }
 
 }
-
+/*
+ * Summary: Method to handle creation of the Space objects based on passed params. Increments
+ *          the numRooms static variables to provide a unique room sequence to the created objects.
+ *          The local static roomNum variable is what allows forward and reverse iteration through
+ *          the rooms connected by 4 different pointers.
+ * Param: string name by reference, integer for type, numBooks for value and enum Color by value
+ * Returns: Space object on the heap by reference.
+ */
 Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color color) {
 
     static int roomNum {1};  // used during room creation to allow backwards iteration
@@ -124,7 +148,14 @@ Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color col
 
     return *space;
 }
-
+/*
+ * Summary: Method to handle connection of the Space objects setting them in the passed forward
+ *          direction and setting their reciprocal (180 degree out) direction for future reverse
+ *          (backward) iteration. Uses a static variable int row and int column to create an X, Y
+ *          coordinate system for use in the printMap method later
+ * Param: Space object by reference, and Direction by value.
+ * Returns: void
+ */
 void GameMap::addSpace(Space& space, Direction direction) {
 
     static int row = 0;
@@ -181,31 +212,22 @@ void GameMap::addSpace(Space& space, Direction direction) {
     }
 
 }
-
-
 /*
- * Summary: Random number generator using c++11 <random> library to generate an integer value over a
- *          uniform distribution between 1 and N, where N is this objects number of sides.
- * Param: integers for the min and max value
- * Returns: integer between min and max supplied params
- * Source: Implemented C++ Mersenne_twister_engine based on post by user Bill Lynch on stackoverflow.com
- *         with credit to original author Stephan T. Lavavej from Microsoft.  Retrieved 20191015 from
- *         https://stackoverflow.com/questions/19665818/generate-random-numbers-using-c11-random-library
+ * Summary: Method to check if the linked list structure is empty based on whether the member
+ *          variables start and end are set to nullptr.
+ * Param: none
+ * Returns: boolean true if empty based on negating the start and header pointers.
  */
-int GameMap::random(int min, int max) {
-
-        std::random_device rd;
-        std::mt19937 mt(rd());  // Mersenne Twister Engine seeded with rd()
-        std::uniform_int_distribution<> dist(min, max); //default is integer type
-
-        return dist(mt);
-}
-
 bool GameMap::isEmpty() {
 
     return !start && !end;
 }
-
+/*
+ * Summary: Method to find the next sequential Space object in the sequence of the Map, uses
+ *          roomNum to find which one of the 4 pointers points to the next Space.
+ * Param: Space* pointer or nullptr if at the end.
+ * Returns: Space pointer to the next space
+ */
 Space* GameMap::findNext(Space* itr) {
 
     int next = itr->roomNum + 1;
@@ -228,8 +250,13 @@ Space* GameMap::findNext(Space* itr) {
         return nullptr;
     }
 }
-
-Space* GameMap::findLast(Space * itr) {
+/*
+ * Summary: Method to find the last sequential Space object in the sequence of the Map, uses
+ *          roomNum to find which one of the 4 pointers points to the last Space.
+ * Param: Space* pointer or nullptr if at the start again.
+ * Returns: Space pointer to the last space
+ */
+Space* GameMap::findLast(Space* itr) {
 
     int last = itr->roomNum - 1;
 
@@ -252,7 +279,15 @@ Space* GameMap::findLast(Space * itr) {
     }
 
 }
-
+/*
+ * Summary: Method to print the linked list structure as a 2D Map of the Escape Room.
+ *          Uses std::cout formatting and X, Y coordinate system initialized during
+ *          object connection to allow use of multiple for loops to print the Map.
+ *          Iterates back through the linked list a second time to find the players
+ *          current location and updates the Map with this location.
+ * Param: none
+ * Returns: void
+ */
 void GameMap::printMap() {
 
     std::cout << "Location: \n\n";
@@ -334,7 +369,13 @@ void GameMap::printMap() {
 
     std::cout << std::endl;
 }
-
+/*
+ * Summary: Method to find the Space that the player is currently located.  Iterates through
+ *          the linked list until the iterator points to a Space with a valid Player pointer
+ *          that is not set to nullptr.
+ * Param: none
+ * Returns: Space pointer that which current player resides.
+ */
 Space* GameMap::playerLocation() {
 
     Space* itr = start;

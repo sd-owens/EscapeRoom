@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Program name: Final Project - Trapped! A C++ Escape Room Adventure
  * Author: Steven Owens
- * Date: 11/23/2019
+ * Date: 12/09/2019
  * Description: This is an escape room style game with a twist. You must solve the
  *              puzzle to find the skeleton key that unlocks the door to safety,
  *              but you must do so before the batteries in your flashlight are dead.
@@ -23,7 +23,11 @@ class Inventory {
 
 private:
     struct ListNode{
-
+        /*
+         * Summary: Custom constructor for the struct ListNode, sets next to nullptr
+         * Param: Item by reference
+         * Returns: N/A
+         */
         explicit ListNode(Item& item) {
             this->item = &item;
             next = nullptr;
