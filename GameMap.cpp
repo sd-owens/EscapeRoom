@@ -101,14 +101,14 @@ void GameMap::createMap() {
 
         if(roomTypes[i] == 2) {
 
-            space = &(createSpace(names[i],roomTypes[i],numBooks[bookSpace], colors[bookSpace]));
-            addSpace(*space, forward[i]);
+            space = (createSpace(names[i],roomTypes[i],numBooks[bookSpace], colors[bookSpace]));
+            addSpace(space, forward[i]);
             bookSpace++;
 
         } else {
 
-            space = &(createSpace(names[i], roomTypes[i], 0, Red));
-            addSpace(*space, forward[i]);
+            space = (createSpace(names[i], roomTypes[i], 0, Red));
+            addSpace(space, forward[i]);
 
         }
 
@@ -123,11 +123,11 @@ void GameMap::createMap() {
  * Param: string name by reference, integer for type, numBooks for value and enum Color by value
  * Returns: Space object on the heap by reference.
  */
-Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color color) {
+Space* GameMap::createSpace(std::string& name, int type, int numBooks, Color color) {
 
     static int roomNum {1};  // used during room creation to allow backwards iteration
 
-    Space* space = nullptr;
+    Space* space;
 
     switch (type){
         case 1:
@@ -146,7 +146,7 @@ Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color col
     space->roomNum = roomNum;
     roomNum++;
 
-    return *space;
+    return space;
 }
 /*
  * Summary: Method to handle connection of the Space objects setting them in the passed forward
@@ -156,7 +156,7 @@ Space& GameMap::createSpace(std::string& name, int type, int numBooks, Color col
  * Param: Space object by reference, and Direction by value.
  * Returns: void
  */
-void GameMap::addSpace(Space& space, Direction direction) {
+void GameMap::addSpace(Space* space, Direction direction) {
 
     static int row = 0;
     static int col = 0;
@@ -165,8 +165,8 @@ void GameMap::addSpace(Space& space, Direction direction) {
 
     if(!start) {
 
-        this->start = &space;
-        this->end = &space;
+        this->start = space;
+        this->end = space;
         start->setRow(row);
         start->setCol(col);
 
@@ -178,29 +178,29 @@ void GameMap::addSpace(Space& space, Direction direction) {
 
             case north:
                 row -= 1;
-                end->north = &space;
-                this->end = &space;
+                end->north = space;
+                this->end = space;
                 end->south = temp;
                 break;
 
             case east:
                 col += 1;
-                end->east = &space;
-                this->end = &space;
+                end->east = space;
+                this->end = space;
                 end->west = temp;
                 break;
 
             case south:
                 row += 1;
-                end->south = &space;
-                this->end = &space;
+                end->south = space;
+                this->end = space;
                 end->north = temp;
                 break;
 
             case west:
                 col -= 1;
-                end->west = &space;
-                this->end = &space;
+                end->west = space;
+                this->end = space;
                 end->east = temp;
                 break;
 

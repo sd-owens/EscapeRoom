@@ -33,8 +33,8 @@ public:
     explicit GameMap();
     ~GameMap();
     void createMap();
-    Space& createSpace(std::string& name, int type, int numBooks, Color color);
-    void addSpace(Space&, Direction direction);
+    Space* createSpace(std::string& name, int type, int numBooks, Color color);
+    void addSpace(Space*, Direction direction);
     bool isEmpty();
     Space* findNext(Space*);
     Space* findLast(Space*);
