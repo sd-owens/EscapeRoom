@@ -1,11 +1,28 @@
-//
-// Created by Steve Owens on 12/4/19.
-//
-
+/**********************************************************************************
+ * Program name: Final Project - Trapped! A C++ Escape Room Adventure
+ * Author: Steven Owens
+ * Date: 11/23/2019
+ * Description: This is an escape room style game with a twist. You must solve the
+ *              puzzle to find the skeleton key that unlocks the door to safety,
+ *              but you must do so before the batteries in your flashlight are dead.
+ *              Each time you move between rooms the charge diminishes, and once the
+ *              batteries are dead, your character is plunged into darkness. Without
+ *              a source of light, they will never be able to solve the puzzle to
+ *              find their way out of the darkness.
+ *
+ * Secret:      365 is the combination to the chest, based on 3 Blue Books, 6 Green
+ *              Books, and 5 Red books.  Alphabetizing the book colors and reading
+ *              their quantity in sequence solves the riddle to unlock the chest.
+ *********************************************************************************/
 #include <iostream>
 #include "Game.hpp"
 #include "GameMap.hpp"
-
+/*
+ * Summary: Custom constructor that creates new instances of GameMap object and Player
+ *          objects.  Assigns a private pointer Menu* to the menu object on the heap.
+ * Param: Menu* pointer passed by value.
+ * Returns: N/A
+ */
 Game::Game(Menu* menu) {
 
     map = new GameMap();
@@ -13,7 +30,12 @@ Game::Game(Menu* menu) {
     this->menu = menu;
 
 }
-
+/*
+ * Summary: Custom destructor that ensures all objects created in the Game class are
+ *          properly deallocated and pointers nulled out.
+ * Param: none
+ * Returns: N/A
+ */
 Game::~Game() {
 
     Space* space = map->playerLocation();
@@ -24,7 +46,15 @@ Game::~Game() {
     map = nullptr;
 
 }
-
+/*
+ * Summary: Core gameplay logic for the Escape Room game.  Use a do-while loop to
+ *          execute the game until either the plays exits the locked room or the
+ *          flashlight charges is extinguished ending the game.  Status codes are
+ *          passed back to play() for successful completion changing the value to
+ *          -1 vice 0
+ * Param: none
+ * Returns: void
+ */
 void Game::play() {
 
     int status{0};
@@ -61,7 +91,50 @@ void Game::play() {
     }
 
 }
+/*
+ * Summary: Player action menu which is normally active when the key from the chest is
+ *          not in the players inventory.  Provides optiosn to search the room, view
+ *          the contents of the player's backpack, move forward to the next room or
+ *          move backwards to the last room visited.
+ * Param: none
+ * Returns: void
+ */
+void Game::noKeyMenu() {
 
+    Space* location = map->playerLocation();
+
+    int choice = menu->roomMenu();
+
+    switch (choice) {
+        case 1:
+            searchRoom();
+            if(location->getName() == " Chest Room" && location->isLocked()) {
+                enterCombo();
+            }
+            break;
+        case 2:
+            player->showBackpack();
+            break;
+        case 3:
+            moveForward();
+            player->useFlashLight();
+            printStatus();
+            break;
+        case 4:
+            moveBackward();
+            player->useFlashLight();
+            printStatus();
+            break;
+    }
+}
+/*
+ * Summary: Player action menu which becomes active only once the  player has the "key"
+ *          and the player is currently in the lastroom with name " Iron Door".  Allows a
+ *          5th menu option to become available to "unlocked the door" enabling the win
+ *          condition to be available.
+ * Param: none
+ * Returns: A status code of 0 or -1 depending on return value of the endGame method.
+ */
 int Game::hasKeyMenu() {
 
     int choice = menu->unlockMenu();
@@ -93,36 +166,12 @@ int Game::hasKeyMenu() {
 
     return status;
 }
-
-void Game::noKeyMenu() {
-
-    Space* location = map->playerLocation();
-
-    int choice = menu->roomMenu();
-
-    switch (choice) {
-        case 1:
-            searchRoom();
-            if(location->getName() == " Chest Room" && location->isLocked()) {
-                enterCombo();
-            }
-            break;
-        case 2:
-            player->showBackpack();
-            break;
-        case 3:
-            moveForward();
-            player->useFlashLight();
-            printStatus();
-            break;
-        case 4:
-            moveBackward();
-            player->useFlashLight();
-            printStatus();
-            break;
-    }
-}
-
+/*
+ * Summary: Method to move the player to the next connected space or sequenced (numRoom)
+ *          room using the helper function findNext.
+ * Param: none
+ * Returns: boolean value true or false, false if the player is unable to move forward.
+ */
 bool Game::moveForward() {
 
     Space* location = map->playerLocation();
@@ -139,7 +188,12 @@ bool Game::moveForward() {
     return false;
 
 }
-
+/*
+ * Summary: Method to move the player to back to the last connected space or room
+ *          using the helper function findLast.
+ * Param: none
+ * Returns: boolean value true or false, false if the player is unable to move backward.
+ */
 bool Game::moveBackward() {
 
     Space* location = map->playerLocation();
@@ -157,7 +211,13 @@ bool Game::moveBackward() {
     return false;
 
 }
-
+/*
+ * Summary: Method search the current room based on the player's location in the Space
+ *          list.  Provides functionality to find Item objects or clues to the combination
+ *          for the ChestRoom.  Items found are added to the players backpack.
+ * Param: none
+ * Returns: void
+ */
 void Game::searchRoom() {
 
     Space* room = map->playerLocation();
@@ -188,13 +248,23 @@ void Game::searchRoom() {
         auto* books = new Item(key);
         player->addItemToPack(*books);
         std::cout << "\nYou've found the Skeleton key, you put it in your pack!\n\n";
+
     } else if (room->getName() == " Empty Corridor") {
 
         std::cout << "\nYou don't think anything here can help solve the puzzle!\n\n";
     }
 
 }
-
+/*
+ * Summary: Method to enter the combination for the chest in the ChestRoom, entering a
+ *         succesful combination unlocked the chest allowing recover of the key to the
+ *         Iron Gate which is the Item enabling the win condition to be available.
+ *         365 is the combination to the chest, based on 3 Blue Books, 6 Green Books,
+ *         and 5 Red books.  Alphabetizing the book colors and reading their quantity
+ *         in sequence solves the riddle to unlock the chest.
+ * Param: none
+ * Returns: void
+ */
 void Game::enterCombo() {
 
     Space* location = map->playerLocation();
@@ -228,7 +298,13 @@ void Game::enterCombo() {
     } while (option != 2);
 
 }
-
+/*
+ * Summary: Method to provide information to the user after each movement.  Provides
+ *          an indication of the "charges" remaining for the player's flashlight, and
+ *          shows the players current location on a map.
+ * Param: none
+ * Returns: void
+ */
 void Game::printStatus() {
 
     std::cout << "\n*** Situation Update ***\n\n";
@@ -238,7 +314,13 @@ void Game::printStatus() {
     map->printMap();
 
 }
-
+/*
+ * Summary: Method to display output to character about meeting the win condition
+ *          with a twist at the end :)
+ * Param: none
+ * Returns: a value of -1 which signals the calling functions back to play() of the
+ *          win condition being fulfilled.
+ */
 int Game::endGame() {
 
     std::cout << "\nYou've unlocked the Iron Door!  You run towards the light and\n";

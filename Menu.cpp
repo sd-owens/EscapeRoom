@@ -1,15 +1,18 @@
 /**********************************************************************************
- * Program name: Lab 9 - STL: Queues and Stacks
+ * Program name: Final Project - Trapped! A C++ Escape Room Adventure
  * Author: Steven Owens
  * Date: 11/23/2019
- * Description: This program is demonstrates the use of standard template library
- *              queue and stack data structures.  The STL queue is used to demo
- *              a buffer by simulated a user specified number of rounds with a
- *              random chance of adding an integer between 1 and 1000 to the
- *              queue aka \"buffer\".  The user also specifies the percent
- *              chance of adding and removing a value form the queue. The STL
- *              stack structure is used to demo reversing a given input string
- *              through creation of a palindrome (same word forward or backward).
+ * Description: This is an escape room style game with a twist. You must solve the
+ *              puzzle to find the skeleton key that unlocks the door to safety,
+ *              but you must do so before the batteries in your flashlight are dead.
+ *              Each time you move between rooms the charge diminishes, and once the
+ *              batteries are dead, your character is plunged into darkness. Without
+ *              a source of light, they will never be able to solve the puzzle to
+ *              find their way out of the darkness.
+ *
+ * Secret:      365 is the combination to the chest, based on 3 Blue Books, 6 Green
+ *              Books, and 5 Red books.  Alphabetizing the book colors and reading
+ *              their quantity in sequence solves the riddle to unlock the chest.
  *********************************************************************************/
 
 #include <iostream>
@@ -34,7 +37,7 @@ Menu::Menu(MenuData* data) {
  *          as a string and converted to an integer.  Static int count exists to prevent
  *          reprinting "title" on subsequent iterations of main menu calls.
  * Param: none
- * Returns: int which is a or 2 by the menu
+ * Returns: int which is a 1 or 2 by the menu
  */
 int Menu::main() {
 
@@ -61,11 +64,22 @@ int Menu::main() {
     count++;
     return choice;
 }
-
+/*
+ * Summary: Function to provide intro to start of game and provide direction.
+ * Param: none
+ * Returns: N/A
+ */
 void Menu::introduction() {
     std::cout << this->menuPrompts->at("intro");
 }
-
+/*
+ * Summary: Displays the player action menu to the user and captures their choice, data
+ *          is validated as a string and converted to an integer.  Provides the 4 options
+ *          to the player for each turn: search space, view inventory, more forward or move
+ *          backwards one space.
+ * Param: none
+ * Returns: int which is 1 - 4 by the menu
+ */
 int Menu::roomMenu() {
 
     std::string input {};
@@ -83,7 +97,14 @@ int Menu::roomMenu() {
 
     return choice;
 }
-
+/*
+ * Summary: Displays the player unlocked menu to the user and captures their choice, data
+ *          is validated as a string and converted to an integer.  Provides the 4 options
+ *          to the player for each turn: search space, view inventory, more forward or move
+ *          backwards one space PLUS the 5th option to unlock the door
+ * Param: none
+ * Returns: int which is 1 - 5 by the menu
+ */
 int Menu::unlockMenu() {
 
     std::string input {};
@@ -101,7 +122,12 @@ int Menu::unlockMenu() {
 
     return choice;
 }
-
+/*
+ * Summary: Takes the user attempt at the combination as a string, validates it and coverts
+ *          it to an integer before returning it to the calling function.
+ * Param: none
+ * Returns: validated integer
+ */
 int Menu::comboMenu() {
 
     std::string input {};
@@ -109,15 +135,18 @@ int Menu::comboMenu() {
 
     std::cout << this->menuPrompts->at("comboMenu");
 
-
     getline(std::cin, input);
     choice = validateIntegerInput(input);
 
-
-
     return choice;
 }
-
+/*
+ * Summary: Displays the tryAgain menu to the user and captures their choice, data is validated
+ *          as a string and converted to an integer.  Allows user to attempt to enter the combo
+ *          another time after a failed attempt.
+ * Param: none
+ * Returns: int which is a 1 or 2 by the menu
+ */
 int Menu::tryAgain() {
 
     std::string input {};

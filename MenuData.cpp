@@ -1,15 +1,14 @@
 /**********************************************************************************
- * Program name: Lab 9 - STL: Queues and Stacks
+ * Program name: Final Project - Trapped! A C++ Escape Room Adventure
  * Author: Steven Owens
  * Date: 11/23/2019
- * Description: This program is demonstrates the use of standard template library
- *              queue and stack data structures.  The STL queue is used to demo
- *              a buffer by simulated a user specified number of rounds with a
- *              random chance of adding an integer between 1 and 1000 to the
- *              queue aka \"buffer\".  The user also specifies the percent
- *              chance of adding and removing a value form the queue. The STL
- *              stack structure is used to demo reversing a given input string
- *              through creation of a palindrome (same word forward or backward).
+ * Description: This is an escape room style game with a twist. You must solve the
+ *              puzzle to find the skeleton key that unlocks the door to safety,
+ *              but you must do so before the batteries in your flashlight are dead.
+ *              Each time you move between rooms the charge diminishes, and once the
+ *              batteries are dead, your character is plunged into darkness. Without
+ *              a source of light, they will never be able to solve the puzzle to
+ *              find their way out of the darkness.
  *********************************************************************************/
 
 #include "MenuData.hpp"
@@ -71,7 +70,7 @@ void MenuData::populateMenuDataMap() {
                                         "3. Move to next room\n4. Move back to last room\n");
 
     this->menuData->emplace("unlockMenu", "Choose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
-                                        "3. Move to next room\n4. Move back to last room\n5. Open Door\n");
+                                        "3. Move to next room\n4. Move back to last room\n5. UNLOCK THE DOOR!!!\n");
 
     this->menuData->emplace("comboMenu", "\nEnter Combination:\n");
 
