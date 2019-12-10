@@ -70,10 +70,10 @@ void MenuData::populateMenuDataMap() {
                                    "is cast from an old flashlight you find lying conveniently by your side.\n"
                                    "You pick up the flashlight and take a look around...\n\n");
 
-    this->menuData->emplace("roomMenu", "Choose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
+    this->menuData->emplace("roomMenu", "\nChoose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
                                         "3. Move to next room\n4. Move back to last room\n");
 
-    this->menuData->emplace("unlockMenu", "Choose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
+    this->menuData->emplace("unlockMenu", "\nChoose an option:\n\n1. Search the Room\n2. Show backpack contents\n"
                                         "3. Move to next room\n4. Move back to last room\n5. UNLOCK THE DOOR!!!\n");
 
     this->menuData->emplace("comboMenu", "\nEnter Combination:\n");

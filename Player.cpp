@@ -47,7 +47,7 @@ Player::~Player() {
  */
 void Player::initBackpack() {
 
-    std::string flashlight = "old flashlight";
+    std::string flashlight = "Flashlight";
 
     auto* item = new Item(flashlight);
 

@@ -59,7 +59,7 @@ void Game::play() {
 
     int status{0};
     std::string input;
-    std::string key {"key"};
+    std::string key {"Key"};
     Space* location;
 
     map->start->setPlayer(player);   // set player at start Space;
@@ -245,8 +245,8 @@ void Game::searchRoom() {
     } else if (room->getName() == " Chest Room" && !room->isLocked()) {
 
         std::string key = "Key";
-        auto* books = new Item(key);
-        player->addItemToPack(*books);
+        auto* keys = new Item(key);
+        player->addItemToPack(*keys);
         std::cout << "\nYou've found the Skeleton key, you put it in your pack!\n\n";
 
     } else if (room->getName() == " Empty Corridor") {
@@ -283,7 +283,7 @@ void Game::enterCombo() {
         if(!location->isLocked()) {
 
             std::cout << "\nYou unlocked the chest!\n";
-            std::string key = "key";
+            std::string key = "Key";
             auto* skeleton = new Item(key);
             player->addItemToPack(*skeleton);
             std::cout << "\nYou've found the key, you put it in your pack!\n\n";
@@ -327,8 +327,8 @@ int Game::endGame() {
     std::cout << "quickly hurry up the stairs.  You have been in the darkness for\n";
     std::cout << "so long the sun light is blinding as your burst into the room!\n\n";
     std::cout << "You begin to recover your vision just in time to see a steel\n";
-    std::cout << "door swing shut behind and lock into place...\n\n";
-    std::cout << "Trapped again!  Be sure to play Trapped 2, coming soon!\n\n";
+    std::cout << "door swing shut behind you and lock into place...\n\n";
+    std::cout << "TRAPPED AGAIN!\n\nBe sure to play Trapped 2, coming soon! ;)\n\n";
 
     return -1;
 }
