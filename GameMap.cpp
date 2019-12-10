@@ -91,9 +91,9 @@ void GameMap::createMap() {
 
     int roomTypes [] = {0, 2, 0, 2, 1, 0, 2, 0, 3};
 
-    int numBooks [] = {3, 6, 5};                // chest combination
+    int numBooks [] = {6, 3, 5};                // chest combination
 
-    Color colors [] = {Blue, Green, Red};
+    Color colors [] = {Green, Blue, Red};
 
     Direction forward [] = {south, east, east, south, south, west, north, west, south};
 

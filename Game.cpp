@@ -225,13 +225,13 @@ void Game::searchRoom() {
     room->search();
 
     if(room->getName() == " 1st Library") {
-        std::string clue = "Clue: 3 Blue Books";
+        std::string clue = "Clue: 6 Green Books";
         auto* books = new Item(clue);
         player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
 
     } else if (room->getName() == " 2nd Library") {
-        std::string clue = "Clue: 6 Green Books";
+        std::string clue = "Clue: 3 Blue Books";
         auto* books = new Item(clue);
         player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
@@ -241,6 +241,7 @@ void Game::searchRoom() {
         auto* books = new Item(clue);
         player->addItemToPack(*books);
         std::cout << "\nYou've found a clue, you put it in your pack!\n\n";
+        std::cout << "Maybe the combo is related to the color and order of the books?\n";
 
     } else if (room->getName() == " Chest Room" && !room->isLocked()) {
 
