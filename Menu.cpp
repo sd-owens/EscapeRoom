@@ -56,10 +56,10 @@ int Menu::main() {
    do {
        getline(std::cin, input);
        choice = validateIntegerInput(input);
-       if(choice < 0 || choice > 45) {
-           std::cerr << "Must choose a number between 0 and 45!\n";
+       if(choice < 1 || choice > 2) {
+           std::cerr << "Must choose 1 or 2!\n";
        }
-   } while(choice < 0 || choice > 45);
+   } while(choice < 1 || choice > 2);
 
     count++;
     return choice;
