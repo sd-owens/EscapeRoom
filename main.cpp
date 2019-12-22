@@ -37,27 +37,24 @@
 
         option = menu->main();
 
-        do{
-
-            if(option == 1) {
+        if(option == 1) {
 
                 game = new Game(menu);
                 game->play();
 
-                option = menu->replay();
+                //option = menu->replay();
                 delete game;
                 game = nullptr;
 
-            }
-
-        } while (option != 2);
+        }
 
         menu->salutation();
 
-        delete data;
         delete menu;
-        data = nullptr;
+        delete data;
+
         menu = nullptr;
+        data = nullptr;
 
         return 0;
 
